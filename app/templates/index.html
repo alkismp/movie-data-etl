@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Movie Search</title>
+</head>
+
+<body>
+    <h1>Search for a Movie</h1>
+    <form action="/search" method="post">
+        <input type="text" name="title" placeholder="Enter movie title" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if searched_title %}
+    <h2>Results for: "{{ searched_title }}"</h2>
+    {% endif %}
+
+    {% if movie_data %}
+    <pre>{{ movie_data | tojson(indent=2) }}</pre>
+    {% endif %}
+</body>
+
+</html>
